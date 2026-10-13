@@ -27,71 +27,71 @@ function formatMoney(amountCOP) {
 // 2. Product Catalog Data
 // ==========================================
 const SIZES = [
-  { key: 'pequeño', label: 'Pequeño', weight: '100g', price: 5000,  icon: 'S' },
-  { key: 'mediano', label: 'Mediano', weight: '220g', price: 8000,  icon: 'M' },
-  { key: 'grande',  label: 'Grande',  weight: '400g', price: 10000, icon: 'L' }
+  { key: 'pequeño', label: 'Pequeño', weight: '100 g', price: 5000,  icon: 'S' },
+  { key: 'mediano', label: 'Mediano', weight: '220 g', price: 8000,  icon: 'M' },
+  { key: 'grande',  label: 'Grande',  weight: '400 g', price: 10000, icon: 'L' }
 ];
 
 const PRODUCTS = [
   {
     id: 'ositos-chamoy',
-    name: 'Ositos Fuego Chamoy',
+    name: 'Ositos fuego chamoy',
     category: 'clasicos',
-    badge: '🔥 Más Vendido',
+    badge: '🔥 Más vendido',
     image: 'img/ositos.jpg',
     basePriceCOP: 16000,
     desc: 'Los clásicos ositos de goma cubiertos con nuestra salsa secreta de chamoy espeso y espolvoreados con Tajín.',
-    defaultSpice: '🔥️🔥️ Clásico Picosito'
+    defaultSpice: '🔥️🔥️ Clásico picosito'
   },
   {
     id: 'mangos-enchilados',
-    name: 'Manguitos Locos Tajín',
+    name: 'Manguitos locos Tajín',
     category: 'clasicos',
     badge: '🍬 Favorito',
     image: 'img/mangos.jpg',
     basePriceCOP: 17500,
     desc: 'Tiras de mango jugoso y dulce cubiertas con abundante chamoy artesanal, chilito en polvo y limón.',
-    defaultSpice: '🔥️🔥️ Clásico Picosito'
+    defaultSpice: '🔥️🔥️ Clásico picosito'
   },
   {
     id: 'aros-durazno',
-    name: 'Aros de Durazno Chamoy',
+    name: 'Aros de durazno con chamoy',
     category: 'clasicos',
-    badge: '🍋 Suave & Delicioso',
+    badge: '🍋 Suave y delicioso',
     image: 'img/duraznos.jpg',
     basePriceCOP: 16500,
     desc: 'Aros de durazno escarchados con azúcar, tamarindo y salsa de chamoy con toque de Miguelito.',
-    defaultSpice: '🔥️ Chamoy Suave'
+    defaultSpice: '🔥️ Chamoy suave'
   },
   {
     id: 'sandias-enchiladas',
-    name: 'Sandillitas Aciditas',
+    name: 'Sandillitas aciditas',
     category: 'acidos',
-    badge: '🍭 Mega Ácido',
+    badge: '🍭 Mega ácidas',
     image: 'img/sandias.jpg',
     basePriceCOP: 17000,
     desc: 'Gomitas sabor sandía con centro acidito, bañadas en chamoy y cubiertas con polvito picosito.',
-    defaultSpice: '🔥️🔥️ Clásico Picosito'
+    defaultSpice: '🔥️🔥️ Clásico picosito'
   },
   {
     id: 'gusanos-neon',
-    name: 'Gusanos Neón Ácidos',
+    name: 'Gusanos neón ácidos',
     category: 'acidos',
-    badge: '🍭 Explosión Cítrica',
+    badge: '🍭 Explosión cítrica',
     image: 'img/gusanos.jpg',
     basePriceCOP: 16000,
     desc: 'Gusanos de goma multicolor súper ácidos bañados en chamoy picante y mezcla especial de chiles.',
-    defaultSpice: '🔥️🔥️🔥️ Fuego Extremo'
+    defaultSpice: '🔥️🔥️🔥️ Fuego extremo'
   },
   {
     id: 'mega-mix-tub',
-    name: 'Tarrina Mega Mix Especial',
+    name: 'Tarrina mega mix especial',
     category: 'combos',
-    badge: '🍋 El Rey de la Casa',
+    badge: '🍋 El rey de la casa',
     image: 'img/mix.jpg',
     basePriceCOP: 32000,
-    desc: 'Tarrina gigante con surtido de todos nuestros sabores de gomitas y contenedor de dipping chamoy aparte.',
-    defaultSpice: '🔥️🔥️ Clásico Picosito'
+    desc: 'Tarrina gigante con surtido de todos nuestros sabores de gomitas y contenedor de chamoy aparte para untar.',
+    defaultSpice: '🔥️🔥️ Clásico picosito'
   }
 ];
 
@@ -202,7 +202,7 @@ function renderProducts(filter = 'all') {
           <div class="spice-options" data-product="${product.id}">
             <button class="spice-opt-btn active" data-spice="🌶️ Tajín">Tajín</button>
             <button class="spice-opt-btn" data-spice="🍓 Chamoy + Tajín">Chamoy + Tajín</button>
-            <button class="spice-opt-btn" data-spice="🔥 Chamoy Habanero">Chamoy Habanero 🔥</button>
+            <button class="spice-opt-btn" data-spice="🔥 Chamoy Habanero">Chamoy habanero 🔥</button>
           </div>
         </div>
 
@@ -241,7 +241,7 @@ function renderProducts(filter = 'all') {
       const activeSizeBtn = card.querySelector('.size-btn.active');
       const activeSpiceBtn = card.querySelector('.spice-opt-btn.active');
       const selectedSize = activeSizeBtn ? activeSizeBtn.dataset.sizeKey : 'mediano';
-      const selectedSpice = activeSpiceBtn ? activeSpiceBtn.dataset.spice : '🔥️🔥️ Clásico';
+      const selectedSpice = activeSpiceBtn ? activeSpiceBtn.dataset.spice : '🔥️🔥️ Clásico picosito';
       const sizeObj = SIZES.find(s => s.key === selectedSize) || SIZES[1];
       const finalPrice = sizeObj.price;
       addToCart({
@@ -347,7 +347,7 @@ if (addCustomToCartBtn) {
     addToCart({
       id: itemId,
       productId: 'custom-mix',
-      name: `Mix Personalizado ${mixData.sizeName} (${mixData.baseName})`,
+      name: `Mix personalizado ${mixData.sizeName} (${mixData.baseName})`,
       image: 'img/mix.jpg',
       spice: `${mixData.sauceName} | ${mixData.chiliName}${mixData.extras.length ? ` | Toppings: ${mixData.extras.join(', ')}` : ''}`,
       size: mixData.sizeName,
@@ -372,7 +372,7 @@ document.querySelectorAll('.add-combo-btn').forEach(btn => {
       productId: comboId,
       name: title,
       image: img,
-      spice: 'Combo Especial Surtido',
+      spice: 'Combo especial surtido',
       priceCOP: priceRaw,
       quantity: 1,
       isCustom: false
@@ -496,7 +496,7 @@ function updateCartUI() {
       cartShipping.textContent = formatMoney(0);
       cartShipping.classList.remove('shipping-free-text');
     } else if (isFreeShipping) {
-      cartShipping.innerHTML = '<span class="shipping-free-text">¡GRATIS! 🎉</span>';
+      cartShipping.innerHTML = '<span class="shipping-free-text">¡Gratis! 🎉</span>';
     } else {
       cartShipping.textContent = formatMoney(shippingFeeCOP);
       cartShipping.classList.remove('shipping-free-text');
@@ -524,7 +524,7 @@ function updateShippingProgress(subtotalCOP) {
   }
 
   if (remaining <= 0) {
-    shippingRemaining.textContent = '¡Ya tienes ENVÍO GRATIS en el municipio! 🎉';
+    shippingRemaining.textContent = '¡Ya tienes envío gratis en todo el municipio! 🎉';
     shippingProgressBar.style.width = '100%';
   } else {
     const curr = CURRENCIES[currentCurrency];
@@ -593,21 +593,21 @@ function generateWhatsAppMessage(customerDetails = null) {
     return null;
   }
 
-  let msg = `🔥️ *NUEVO PEDIDO - GOMIBOOM* 🔥️\n`;
-  msg += `🔥━━━━━━━━━━━━━━━━━━━━🔥\n`;
+  let msg = `🔥 *NUEVO PEDIDO - GOMIBOOM* 🔥\n`;
+  msg += `━━━━━━━━━━━━━━━━━━━━\n`;
 
   if (customerDetails) {
     msg += `🍓 *Cliente:* ${customerDetails.name}\n`;
-    msg += `🔥 *Teléfono:* ${customerDetails.phone}\n`;
-    msg += `🔥 *Dirección:* ${customerDetails.address}\n`;
-    msg += `🍓 *Método de Pago:* ${customerDetails.payment}\n`;
+    msg += `📱 *Teléfono:* ${customerDetails.phone}\n`;
+    msg += `📍 *Dirección:* ${customerDetails.address}\n`;
+    msg += `💳 *Método de pago:* ${customerDetails.payment}\n`;
     if (customerDetails.notes) {
-      msg += `🔥 *Notas:* ${customerDetails.notes}\n`;
+      msg += `📝 *Notas:* ${customerDetails.notes}\n`;
     }
-    msg += `🔥━━━━━━━━━━━━━━━━━━━━🔥\n`;
+    msg += `━━━━━━━━━━━━━━━━━━━━\n`;
   }
 
-  msg += `🔥 *DETALLE DE PRODUCTOS:*\n`;
+  msg += `📋 *Detalle de productos:*\n`;
   let subtotalCOP = 0;
   cart.forEach((item, index) => {
     const totalItem = item.priceCOP * item.quantity;
@@ -624,18 +624,18 @@ function generateWhatsAppMessage(customerDetails = null) {
   const discountAmountCOP = subtotalCOP * appliedDiscount;
   const finalTotalCOP = subtotalCOP - discountAmountCOP + shippingFeeCOP;
 
-  msg += `\n🔥━━━━━━━━━━━━━━━━━━━━🔥\n`;
-  msg += `🍓 *Subtotal:* ${formatMoney(subtotalCOP)}\n`;
+  msg += `\n━━━━━━━━━━━━━━━━━━━━\n`;
+  msg += `💵 *Subtotal:* ${formatMoney(subtotalCOP)}\n`;
   if (appliedDiscount > 0) {
     msg += `🎉 *Descuento:* -${formatMoney(discountAmountCOP)} (${appliedDiscount * 100}%)\n`;
   }
   if (isFreeShipping) {
-    msg += `🌶️ *Envío:* ¡GRATIS a todo el municipio! 🎉\n`;
+    msg += `🛵 *Envío:* ¡Gratis a todo el municipio! 🎉\n`;
   } else {
-    msg += `🌶️ *Envío:* ${formatMoney(shippingFeeCOP)} (Domicilio en el municipio)\n`;
+    msg += `🛵 *Envío:* ${formatMoney(shippingFeeCOP)} (Domicilio en el municipio)\n`;
   }
   msg += `🔥 *TOTAL A PAGAR:* ${formatMoney(finalTotalCOP)}\n`;
-  msg += `🔥━━━━━━━━━━━━━━━━━━━━🔥\n`;
+  msg += `━━━━━━━━━━━━━━━━━━━━\n`;
   msg += `¡Quedo atento(a) para la confirmación de mi pedido! 🍬`;
 
   return encodeURIComponent(msg);
@@ -744,7 +744,7 @@ if (checkoutForm) {
       window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
       checkoutModal.classList.remove('open');
       closeCartDrawer();
-      showToast('¡Pedido generado con éxito! Redirigiendo a WhatsApp...', '✖');
+      showToast('¡Pedido generado con éxito! Redirigiendo a WhatsApp...', '🟢');
       // Clear cart after submitting
       cart = [];
       appliedDiscount = 0;
